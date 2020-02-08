@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="City Events" />
+
+    <Button
+        android:id="@+id/DrawButton"
+        android:text="Draw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/CardFrame"/>
+
+    <Button
+        android:id="@+id/ChooseA_Button"
+        android:text="Choose A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/CardFrame"/>
+
+    <Button
+        android:id="@+id/ChooseB_Button"
+        android:text="Choose B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/CardFrame"/>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="333dp"
+        android:layout_height="500dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/CardFrame" >
+        <ImageView
+            android:layout_width="333dp"
+            android:layout_height="500dp"
+            android:src="@android:color/black"
+            android:id="@+id/CardImage"/>
+
+        <ImageView
+            android:layout_width="333dp"
+            android:layout_height="250dp"
+            android:layout_gravity="top"
+            android:src="@android:color/black"
+            android:id="@+id/ChooseA_Image"/>
+
+        <ImageView
+            android:layout_width="333dp"
+            android:layout_height="250dp"
+            android:layout_gravity="bottom"
+            android:src="@android:color/black"
+            android:id="@+id/ChooseB_Image"/>
+    </FrameLayout>
+
+
+</RelativeLayout>
