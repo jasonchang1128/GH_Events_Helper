@@ -17,8 +17,8 @@ class CityEvents : AppCompatActivity() {
     lateinit var ChooseA_Image: ImageView
     lateinit var ChooseB_Image: ImageView
     val ListOfCards: MutableList<Int> = ArrayList()
-    val PREFS_FILENAME = "com.example.gheventshelper.city_prefs"
-    val DECK_LIST = "deck_list"
+    val PREFS_FILENAME = "com.example.gheventshelper.gh_prefs"
+    val DECK_LIST = "city_deck_list"
     lateinit var prefs: SharedPreferences
 
     val SetDeckText = "Card Numbers in Order Split by ,"

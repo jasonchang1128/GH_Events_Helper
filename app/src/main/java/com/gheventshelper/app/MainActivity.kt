@@ -15,10 +15,20 @@ class MainActivity : AppCompatActivity() {
         city_button.setOnClickListener {
             OpenCityEvents();
         }
+
+        val road_button = findViewById(R.id.RoadButton) as Button
+        road_button.setOnClickListener {
+            OpenRoadEvents();
+        }
     }
 
     fun OpenCityEvents() {
         val intent = Intent(this, CityEvents::class.java);
+        startActivity(intent);
+    }
+
+    fun OpenRoadEvents() {
+        val intent = Intent(this, RoadEvents::class.java);
         startActivity(intent);
     }
 }

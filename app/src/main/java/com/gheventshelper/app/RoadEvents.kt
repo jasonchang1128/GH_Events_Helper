@@ -17,8 +17,8 @@ class RoadEvents : AppCompatActivity() {
     lateinit var ChooseA_Image: ImageView
     lateinit var ChooseB_Image: ImageView
     val ListOfCards: MutableList<Int> = ArrayList()
-    val PREFS_FILENAME = "com.example.gheventshelper.city_prefs"
-    val DECK_LIST = "deck_list"
+    val PREFS_FILENAME = "com.example.gheventshelper.gh_prefs"
+    val DECK_LIST = "road_deck_list"
     lateinit var prefs: SharedPreferences
 
     val SetDeckText = "Card Numbers in Order Split by ,"
@@ -26,7 +26,7 @@ class RoadEvents : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_city_events)
+        setContentView(R.layout.activity_road_events)
         prefs = getSharedPreferences(PREFS_FILENAME, 0)
         val savedDeck = prefs.getString(DECK_LIST,null)
 
@@ -38,7 +38,7 @@ class RoadEvents : AppCompatActivity() {
             StringToDeckList(savedDeck)
         }
         else {
-            for(i in 1..90) {
+            for(i in 1..83) { //Add all 83 cards to the deck by default.
                 ListOfCards.add(i)
                 SaveDeckList()
             }
@@ -105,13 +105,13 @@ class RoadEvents : AppCompatActivity() {
 
     private fun DrawCardImage() {
         ChooseClear()
-        val CardName = "ce_"+"%02d".format(ListOfCards.get(0))+"_f"
+        val CardName = "re_"+"%02d".format(ListOfCards.get(0))+"_f"
         val DrawableId = getResources().getIdentifier(CardName, "drawable", this.getPackageName());
         CardImage.setImageResource(DrawableId);
     }
 
     private fun FlipCard() {
-        val CardName = "ce_"+"%02d".format(ListOfCards.get(0))+"_b"
+        val CardName = "re_"+"%02d".format(ListOfCards.get(0))+"_b"
         val DrawableId = getResources().getIdentifier(CardName, "drawable", this.getPackageName());
         CardImage.setImageResource(DrawableId);
     }
