@@ -34,14 +34,11 @@ class RoadEvents : AppCompatActivity() {
         ChooseA_Image = findViewById(R.id.ChooseA_Image) as ImageView
         ChooseB_Image = findViewById(R.id.ChooseB_Image) as ImageView
 
-        if( savedDeck != null) {
+        if( (savedDeck != null) && (savedDeck != "")) {
             StringToDeckList(savedDeck)
         }
         else {
-            for(i in 1..83) { //Add all 83 cards to the deck by default.
-                ListOfCards.add(i)
-                SaveDeckList()
-            }
+            DeckIsEmptyToast()
         }
 
         val draw_button = findViewById(R.id.DrawButton) as Button
@@ -52,25 +49,21 @@ class RoadEvents : AppCompatActivity() {
         val choosea_button = findViewById(R.id.ChooseA_Button) as Button
         choosea_button.setOnClickListener {
             ChooseA()
-            ShowActionButtons()
         }
 
         val chooseb_button = findViewById(R.id.ChooseB_Button) as Button
         chooseb_button.setOnClickListener {
             ChooseB()
-            ShowActionButtons()
         }
 
         val destroy_button = findViewById(R.id.Destroy_Button) as Button
         destroy_button.setOnClickListener {
             DestroyCard()
-            ShowChooseButtons()
         }
 
         val buttom_button = findViewById(R.id.Bottom_Button) as Button
         buttom_button.setOnClickListener {
             BottomCard()
-            ShowChooseButtons()
         }
     }
 
@@ -104,10 +97,16 @@ class RoadEvents : AppCompatActivity() {
     }
 
     private fun DrawCardImage() {
-        ChooseClear()
-        val CardName = "re_"+"%02d".format(ListOfCards.get(0))+"_f"
-        val DrawableId = getResources().getIdentifier(CardName, "drawable", this.getPackageName());
-        CardImage.setImageResource(DrawableId);
+        if(ListOfCards.isNotEmpty()) {
+            ChooseClear()
+            val CardName = "re_" + "%02d".format(ListOfCards.get(0)) + "_f"
+            val DrawableId =
+                getResources().getIdentifier(CardName, "drawable", this.getPackageName());
+            CardImage.setImageResource(DrawableId);
+        }
+        else {
+            DeckIsEmptyToast()
+        }
     }
 
     private fun FlipCard() {
@@ -117,15 +116,27 @@ class RoadEvents : AppCompatActivity() {
     }
 
     private fun ChooseA() {
-        ChooseA_Image.alpha = 0.0f
-        ChooseB_Image.alpha = 1.0f
-        FlipCard()
+        if(ListOfCards.isNotEmpty()) {
+            ChooseA_Image.alpha = 0.0f
+            ChooseB_Image.alpha = 1.0f
+            FlipCard()
+            ShowActionButtons()
+        }
+        else {
+            DeckIsEmptyToast()
+        }
     }
 
     private fun ChooseB() {
-        ChooseA_Image.alpha = 1.0f
-        ChooseB_Image.alpha = 0.0f
-        FlipCard()
+        if(ListOfCards.isNotEmpty()) {
+            ChooseA_Image.alpha = 1.0f
+            ChooseB_Image.alpha = 0.0f
+            FlipCard()
+            ShowActionButtons()
+        }
+        else {
+            DeckIsEmptyToast()
+        }
     }
 
     private fun ChooseClear() {
@@ -143,6 +154,7 @@ class RoadEvents : AppCompatActivity() {
         ListOfCards.removeAt(0)
         SaveDeckList()
         ChooseBlank() //Blank out the card until card gets drawn.
+        ShowChooseButtons()
     }
 
     //Puts the card onto the bottom of the deck.
@@ -151,6 +163,7 @@ class RoadEvents : AppCompatActivity() {
         ListOfCards.add(TopCard) //Adds the TopCard to the bottom.
         SaveDeckList()
         ChooseBlank() //Blank out the card until card gets drawn.
+        ShowChooseButtons()
     }
 
     private fun SaveDeckList() {
@@ -220,4 +233,10 @@ class RoadEvents : AppCompatActivity() {
         alertDialog.show()
     }
 
+    private fun DeckIsEmptyToast(){
+        Toast.makeText(getApplicationContext(),
+            "Please Set Cards in Menu",
+            Toast.LENGTH_LONG)
+            .show();
+    }
 }
