@@ -11,7 +11,12 @@
         android:theme="@style/AppTheme">
         <activity android:name="com.gheventshelper.app.CityEvents"
             android:parentActivityName="com.gheventshelper.app.MainActivity">
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gheventshelper.app.MainActivity" />
+        </activity>
+        <activity android:name="com.gheventshelper.app.RoadEvents"
+            android:parentActivityName="com.gheventshelper.app.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.gheventshelper.app.MainActivity" />
