@@ -13,29 +13,55 @@
         android:layout_centerHorizontal="true"
         android:text="City Events" />
 
-    <Button
-        android:id="@+id/DrawButton"
-        android:text="Draw"
-        android:layout_width="wrap_content"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/CardFrame"/>
+        android:layout_below="@id/CardFrame"
+        android:visibility="visible"
+        android:id="@+id/ChooseButtons" >
+        <Button
+            android:id="@+id/DrawButton"
+            android:text="Draw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"/>
 
-    <Button
-        android:id="@+id/ChooseA_Button"
-        android:text="Choose A"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/CardFrame"/>
+        <Button
+            android:id="@+id/ChooseA_Button"
+            android:text="Choose A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
 
-    <Button
-        android:id="@+id/ChooseB_Button"
-        android:text="Choose B"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/ChooseB_Button"
+            android:text="Choose B"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"/>
+    </FrameLayout>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/CardFrame"/>
+        android:layout_below="@id/CardFrame"
+        android:visibility="gone"
+        android:id="@+id/CardActionButtons" >
+
+        <Button
+            android:id="@+id/Destroy_Button"
+            android:text="Destroy Card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/Bottom_Button"
+            android:text="Bottom Deck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"/>
+    </FrameLayout>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="333dp"
@@ -63,6 +89,4 @@
             android:src="@android:color/black"
             android:id="@+id/ChooseB_Image"/>
     </FrameLayout>
-
-
 </RelativeLayout>

@@ -2,8 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/ShuffleItem"
-        android:title="Shuffle"
+    <item android:id="@+id/SetDeck"
+        android:title="Set Cards"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/AddCard"
+        android:title="Add Card"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/SaveItem"
+        android:title="Save"
         app:showAsAction="never" />
 
 </menu>

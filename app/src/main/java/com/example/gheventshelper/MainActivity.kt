@@ -14,11 +14,11 @@ class MainActivity : AppCompatActivity() {
 
         val city_button = findViewById(R.id.CityButton) as Button
         city_button.setOnClickListener {
-            OpenCityEvents(city_button);
+            OpenCityEvents();
         }
     }
 
-    fun OpenCityEvents(view: View) {
+    fun OpenCityEvents() {
         val intent = Intent(this, CityEvents::class.java);
         startActivity(intent);
     }
