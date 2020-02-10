@@ -1,10 +1,9 @@
-package com.example.gheventshelper
+package com.gheventshelper.app
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button;
 import android.os.Bundle
-import android.view.View
 
 class MainActivity : AppCompatActivity() {
 

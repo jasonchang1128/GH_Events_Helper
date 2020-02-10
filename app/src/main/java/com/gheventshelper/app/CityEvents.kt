@@ -1,4 +1,4 @@
-package com.example.gheventshelper
+package com.gheventshelper.app
 
 import android.content.SharedPreferences
 import android.os.Bundle

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.gheventshelper">
+    package="com.gheventshelper.app">
 
     <application
         android:allowBackup="true"
@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CityEvents"
-            android:parentActivityName=".MainActivity">
+        <activity android:name="com.gheventshelper.app.CityEvents"
+            android:parentActivityName="com.gheventshelper.app.MainActivity">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.gheventshelper.app.MainActivity" />
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name="com.gheventshelper.app.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
